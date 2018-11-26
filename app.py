@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
 
@@ -7,7 +7,7 @@ stores = [{"name": "My store", "items": [{"name": "my item", "price": 11}]}]
 
 @app.route("/")
 def home():
-    return "Hello, world!"
+    return render_template("index.html")
 
 
 @app.route("/store", methods=["POST"])
