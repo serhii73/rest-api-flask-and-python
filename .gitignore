@@ -1,2 +1,5 @@
 .vscode/
 *.pyc
+
+# DB
+data.db
