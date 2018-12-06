@@ -16,7 +16,10 @@ items = []
 class Item(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument(
-        "price", type=float, required=True, help="This field cannot be left blank!"
+        "price",
+        type=float,
+        required=True,
+        help="This field cannot be left blank!",
     )
 
     @jwt_required()
@@ -25,7 +28,11 @@ class Item(Resource):
 
     def post(self, name):
         if next(filter(lambda x: x["name"] == name, items), None) is not None:
-            return {"message": "An item with name '{}' already exists.".format(name)}
+            return {
+                "message": "An item with name '{}' already exists.".format(
+                    name
+                )
+            }
 
         data = Item.parser.parse_args()
 
